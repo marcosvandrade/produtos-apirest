@@ -98,56 +98,59 @@ export default {
       })
     },
 
-    // salvar(){
+     salvar(){
 
-    //   if(!this.produto.id){
+       if(!this.produto.id){
 
-    //     Produto.salvar(this.produto).then(resposta => {
-    //       this.produto = {}
-    //       alert('Cadastrado com sucesso!')
-    //       this.listar()
-    //       this.errors = {}
-    //     }).catch(e => {
-    //       this.errors = e.response.data.errors
-    //     })
+         Produto.salvar(this.produto).then(resposta => {
+           this.resposta = resposta
+           this.produto = {}
+           alert('Cadastrado com sucesso!')
+          this.listar()
+           this.errors = {}
+         }).catch(e => {
+           this.errors = e.response.data.errors
+         })
 
-    //   }else{
+       }else{
 
-    //     Produto.atualizar(this.produto).then(resposta => {
-    //       this.produto = {}
-    //       this.errors = {}
-    //       alert('Atualizado com sucesso!')
-    //       this.listar()
-    //     }).catch(e => {
-    //       this.errors = e.response.data.errors
-    //     })
+         Produto.atualizar(this.produto).then(resposta => {
+            this.resposta = resposta
+           this.produto = {}
+           this.errors = {}
+           alert('Atualizado com sucesso!')
+           this.listar()
+         }).catch(e => {
+           this.errors = e.response.data.errors
+         })
 
-    //   }
+       }
       
 
     },
 
-    // editar(produto){
-    //   this.produto = produto
-    // },
+     editar(produto){
+       this.produto = produto
+     },
 
-    // remover(produto){
+     remover(produto){
 
-    //   if(confirm('Deseja excluir o produto?')){
+       if(confirm('Deseja excluir o produto?')){
 
-    //     Produto.apagar(produto).then(resposta => {
-    //       this.listar()
-    //       this.errors = {}
-    //     }).catch(e => {
-    //       this.errors = e.response.data.errors
-    //     })
+         Produto.apagar(produto).then(resposta => {
+            this.resposta = resposta
+           this.listar()
+           this.errors = {}
+         }).catch(e => {
+           this.errors = e.response.data.errors
+         })
 
-    //   }
+       }
 
-   // }
+    }
   }
 
-//}
+}
 </script>
 
 <style>
